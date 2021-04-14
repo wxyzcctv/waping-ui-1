@@ -1,15 +1,16 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-  <First/>
+    <div>导航栏 | 
+        <router-link to="/">First</router-link> | 
+        <router-link to="/second">Second</router-link>
+    </div>
+  <hr/>
+  <router-view/>
+  <!-- router-view用来表示在App.vue中渲染的组件 -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import First from './components/First.vue'
 export default {
     name: 'app',
-    components: {First}
 }
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md

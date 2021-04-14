@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        Hello Vue
+        First
     </div>
 </template>
 <script>
