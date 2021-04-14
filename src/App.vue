@@ -1,7 +1,7 @@
 <template>
     <div>导航栏 | 
         <router-link to="/">First</router-link> | 
-        <router-link to="/second">Second</router-link>
+        <router-link to="/doc">Second</router-link>
     </div>
   <hr/>
   <router-view/>

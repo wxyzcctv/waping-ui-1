@@ -1,16 +1,16 @@
 import { createApp, createRenderer } from 'vue'
 import App from './App.vue'
 import {createWebHashHistory, createRouter} from 'vue-router'
-import First from './components/First.vue'
-import Second from './components/Second.vue'
+import Home from "./views/Home.vue"
+import Doc from "./views/Doc.vue"
 // 分别引入createWebHashHistory和createRouter，再引入First和Second模块
 // 对需要添加的路由进行如下配置
 const history = createWebHashHistory()
 const router = createRouter({
     history: history,
     routes:[
-        {path: '/', component: First},
-        {path: '/second', component: Second}
+        {path: '/', component: Home},
+        {path: '/doc', component: Doc}
     ]
 })
 
