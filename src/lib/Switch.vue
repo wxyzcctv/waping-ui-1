@@ -22,27 +22,38 @@ button {
 	height: $h;
 	width: $h * 2;
 	border: none;
-	background: grey;
+	background: #bfbfbf;
 	border-radius: $h/2;
 	position: relative;
-}
-button:focus {
-	outline: none;
-}
-span {
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	height: $h2;
-	width: $h2;
-	border-radius: $h2 / 2;
-	background: white;
-	transition: left 250ms;
-}
-button.checked {
-	background: blue;
-}
-button.checked > span {
-	left: calc(100% - #{$h2} - 2px);
+	> span {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		height: $h2;
+		width: $h2;
+		border-radius: $h2 / 2;
+		background: white;
+		transition: all 250ms;
+	}
+	&:focus {
+		outline: none;
+	}
+	&.checked {
+		background: #1890ff;
+		> span {
+			left: calc(100% - #{$h2} - 2px);
+		}
+	}
+	&:active {
+		> span {
+			width: $h2 + 4px;
+		}
+	}
+	&.checked:active {
+		> span {
+			width: $h2 + 4px;
+			margin-left: -4px;
+		}
+	}
 }
 </style>
