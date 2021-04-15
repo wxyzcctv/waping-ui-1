@@ -5,7 +5,9 @@
             <li>菜单1</li>
             <li>菜单2</li>
         </ul>
-        <span class="toggleAside"></span>
+        <svg class="icon toggleAside" aria-hidden="true">
+            <use xlink:href="#icon-caidan"></use>
+        </svg>
     </div>
 </template>
 <script lang="ts">
@@ -41,7 +43,15 @@ export default {
             margin: 0 1em;
         }
     }
-    > .toggleMenu {}
+    > .toggleAside {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     @media (max-width: 500px){
         > .menu{display: none;}
         > .logo{margin: 0 auto;}
