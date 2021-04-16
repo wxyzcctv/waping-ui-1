@@ -51,6 +51,10 @@
 		<Button theme="link" :disabled="true"> 禁用链接 </Button>
 		<Button theme="text" :disabled="true"> 禁用文本 </Button>
 	</div>
+	<h1>示例5</h1>
+	<div>
+		<Button loading disabled> 加载中 </Button>
+	</div>
 </template>
 <script lang="ts">
 import Button from "../lib/Button.vue";
