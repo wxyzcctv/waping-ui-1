@@ -6,6 +6,9 @@
 		<Button theme="button"> 按鈕 </Button>
 		<Button theme="link"> link </Button>
 		<Button theme="text"> text </Button>
+		<Button @click="onClick"> click事件 </Button>
+		<Button @focus="onFocus"> focus事件 </Button>
+		<Button @mouseenter="onMouseenter"> mouseenter事件 </Button>
 	</div>
 	<h1>示例2</h1>
 	<div>
@@ -62,9 +65,15 @@ export default {
 	components: { Button },
 	setup(props, context) {
 		const onClick = () => {
-			console.log("hi");
+			console.log("click事件");
 		};
-		return { onClick };
+		const onFocus = () => {
+			console.log("focus事件");
+		};
+		const onMouseenter = () => {
+			console.log("mouseenter事件");
+		};
+		return { onClick, onFocus, onMouseenter };
 	},
 };
 </script>
