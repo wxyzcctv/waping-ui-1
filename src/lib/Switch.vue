@@ -1,5 +1,5 @@
 <template>
-	<button :class="{ checked: value }" @click="toggle"><span></span></button>
+	<button class="waping-switch" :class="{ 'waping-checked': value }" @click="toggle"><span></span></button>
 </template>
 <script lang="ts">
 import { ref } from "vue";
@@ -15,10 +15,10 @@ export default {
 	},
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.waping-switch {
 	height: $h;
 	width: $h * 2;
 	border: none;
@@ -38,7 +38,7 @@ button {
 	&:focus {
 		outline: none;
 	}
-	&.checked {
+	&.waping-checked {
 		background: #1890ff;
 		> span {
 			left: calc(100% - #{$h2} - 2px);
@@ -49,7 +49,7 @@ button {
 			width: $h2 + 4px;
 		}
 	}
-	&.checked:active {
+	&.waping-checked:active {
 		> span {
 			width: $h2 + 4px;
 			margin-left: -4px;
