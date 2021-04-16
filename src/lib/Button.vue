@@ -1,5 +1,5 @@
 <template>
-	<button class="waping-button" :class="classes">
+	<button class="waping-button" :class="classes" :disabled="disabled">
 		<slot />
 	</button>
 </template>
@@ -19,6 +19,10 @@ export default {
 		level: {
 			type: String,
 			default: "normal",
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	setup(props) {
@@ -43,6 +47,7 @@ $radius: 4px;
 $red: #f56c6c;
 $yellow: #e6a23c;
 $green: #67c23a;
+$grey: grey;
 .waping-button {
 	box-sizing: border-box;
 	height: $h;
@@ -171,6 +176,22 @@ $green: #67c23a;
 			&:focus {
 				color: darken($red, 10%);
 			}
+		}
+	}
+	&.waping-theme-button {
+		&[disabled] {
+			cursor: not-allowed;
+			color: $grey;
+			&:hover {
+				border-color: $border-color;
+			}
+		}
+	}
+	&.waping-theme-link,
+	&.waping-theme-text {
+		&[disabled] {
+			cursor: not-allowed;
+			color: $grey;
 		}
 	}
 }
