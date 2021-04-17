@@ -204,7 +204,7 @@ $grey: grey;
 		display: inline-block;
 		margin-right: 4px;
 		border-radius: 8px;
-		border-color: $blue $blue $blue transparent;
+		border-color: #a6d7ff #73c0ff #40a9ff transparent;
 		border-style: solid;
 		border-width: 2px;
 		animation: waping-spin 1s infinite linear;

@@ -50,7 +50,7 @@
 	</div>
 	<h1>示例4</h1>
 	<div>
-		<Button disabled> 禁用按鈕 </Button>
+		<Button disabled> 禁用按钮 </Button>
 		<Button theme="link" :disabled="true"> 禁用链接 </Button>
 		<Button theme="text" :disabled="true"> 禁用文本 </Button>
 	</div>
