@@ -8,8 +8,12 @@
 		:ok="f1"
 		:cancel="f2"
 	>
-        <div>外部加入的内容</div>
-    </Dialog>
+		<template v-slot:title> <strong> 加粗标题 </strong> </template>
+		<template v-slot:content>
+			<div>以下文字是加粗的</div>
+			<strong>你好</strong>
+		</template>
+	</Dialog>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";

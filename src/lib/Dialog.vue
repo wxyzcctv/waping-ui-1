@@ -4,11 +4,11 @@
 		<div class="waping-dialog-wrapper">
 			<div class="waping-dialog">
 				<header>
-					{{ title }}
+					<slot name="title" />
 					<span class="waping-dialog-close" @click="close"></span>
 				</header>
 				<main>
-					<slot />
+					<slot name="content" />
 				</main>
 				<footer>
 					<Button level="main" @click="ok">Ok</Button>
@@ -26,10 +26,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-        title: {
-            type: String,
-            default: '提示'
-        },
 		closeOnClickOverlay: {
 			type: Boolean,
 			default: true,
