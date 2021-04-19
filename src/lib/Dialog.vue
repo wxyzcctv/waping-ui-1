@@ -1,21 +1,23 @@
 <template>
 	<template v-if="visible">
-		<div class="waping-dialog-overlay" @click="onClickOverlay"></div>
-		<div class="waping-dialog-wrapper">
-			<div class="waping-dialog">
-				<header>
-					<slot name="title" />
-					<span class="waping-dialog-close" @click="close"></span>
-				</header>
-				<main>
-					<slot name="content" />
-				</main>
-				<footer>
-					<Button level="main" @click="ok">Ok</Button>
-					<Button @click="cancel">Cancel</Button>
-				</footer>
+		<Teleport to="body">
+			<div class="waping-dialog-overlay" @click="onClickOverlay"></div>
+			<div class="waping-dialog-wrapper">
+				<div class="waping-dialog">
+					<header>
+						<slot name="title" />
+						<span class="waping-dialog-close" @click="close"></span>
+					</header>
+					<main>
+						<slot name="content" />
+					</main>
+					<footer>
+						<Button level="main" @click="ok">Ok</Button>
+						<Button @click="cancel">Cancel</Button>
+					</footer>
+				</div>
 			</div>
-		</div>
+		</Teleport>
 	</template>
 </template>
 <script lang="ts">
