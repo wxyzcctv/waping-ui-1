@@ -1,23 +1,64 @@
 <template>
-	<div class="waping-dialog-overlay"></div>
-	<div class="waping-dialog-wrapper">
-		<div class="waping-dialog">
-			<header>标题<span class="waping-dialog-close"></span></header>
-			<main>
-				<p>第一行</p>
-				<p>第二行</p>
-			</main>
-			<footer>
-				<Button level="main">Ok</Button>
-				<Button>Cancel</Button>
-			</footer>
+	<template v-if="visible">
+		<div class="waping-dialog-overlay" @click="onClickOverlay"></div>
+		<div class="waping-dialog-wrapper">
+			<div class="waping-dialog">
+				<header>
+					标题<span class="waping-dialog-close" @click="close"></span>
+				</header>
+				<main>
+					<p>第一行</p>
+					<p>第二行</p>
+				</main>
+				<footer>
+					<Button level="main" @click="ok">Ok</Button>
+					<Button @click="cancel">Cancel</Button>
+				</footer>
+			</div>
 		</div>
-	</div>
+	</template>
 </template>
 <script lang="ts">
 import Button from "./Button.vue";
 export default {
+	props: {
+		visible: {
+			type: Boolean,
+			default: false,
+		},
+		closeOnClickOverlay: {
+			type: Boolean,
+			default: true,
+		},
+		ok: {
+			type: Function,
+		},
+		cancel: {
+			type: Function,
+		},
+	},
 	components: { Button },
+	setup(props, context) {
+		const close = () => {
+			context.emit("update:visible", false);
+		};
+		const onClickOverlay = () => {
+			if (props.closeOnClickOverlay) {
+				close();
+			}
+		};
+		const ok = () => {
+            // 如果props.ok 事件存在就执行，如果执行结果不为false就执行close()
+			if (props.ok?.() !== false) {
+				close();
+			}
+		};
+		const cancel = () => {
+			context.emit("cancel");
+			close();
+		};
+		return { close, onClickOverlay, ok, cancel };
+	},
 };
 </script>
 <style lang="scss">
