@@ -7,7 +7,9 @@
 		:closeOnClickOverlay="false"
 		:ok="f1"
 		:cancel="f2"
-	></Dialog>
+	>
+        <div>外部加入的内容</div>
+    </Dialog>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";

@@ -4,11 +4,11 @@
 		<div class="waping-dialog-wrapper">
 			<div class="waping-dialog">
 				<header>
-					标题<span class="waping-dialog-close" @click="close"></span>
+					{{ title }}
+					<span class="waping-dialog-close" @click="close"></span>
 				</header>
 				<main>
-					<p>第一行</p>
-					<p>第二行</p>
+					<slot />
 				</main>
 				<footer>
 					<Button level="main" @click="ok">Ok</Button>
@@ -26,6 +26,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+        title: {
+            type: String,
+            default: '提示'
+        },
 		closeOnClickOverlay: {
 			type: Boolean,
 			default: true,
@@ -48,7 +52,7 @@ export default {
 			}
 		};
 		const ok = () => {
-            // 如果props.ok 事件存在就执行，如果执行结果不为false就执行close()
+			// 如果props.ok 事件存在就执行，如果执行结果不为false就执行close()
 			if (props.ok?.() !== false) {
 				close();
 			}
