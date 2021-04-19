@@ -1,15 +1,21 @@
 <template>
 	<div class="waping-tabs">
-		<div class="waping-tabs-nav">
+		<div class="waping-tabs-nav" ref="container">
 			<div
 				class="waping-tabs-nav-item"
 				v-for="(title, index) in titles"
+				:ref="
+					(el) => {
+						if (el) navItems[index] = el;
+					}
+				"
 				@click="select(title)"
 				:class="{ selected: selected === title }"
 				:key="index"
 			>
 				{{ title }}
 			</div>
+			<div class="waping-tabs-nav-indicator" ref="indicator"></div>
 		</div>
 		<div class="waping-tabs-content">
 			<component
@@ -22,7 +28,7 @@
 	</div>
 </template>
 <script lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, onUpdated, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
 	props: {
@@ -32,6 +38,25 @@ export default {
 		},
 	},
 	setup(props, context) {
+		const navItems = ref<HTMLDivElement[]>([]);   // 获取for循环的ref的方法
+		const indicator = ref<HTMLDivElement>(null);
+		const container = ref<HTMLDivElement>(null);
+
+		const x = () => {
+			const divs = navItems.value;
+			const result = divs.filter((div) =>
+				div.classList.contains("selected")
+			)[0];
+			const { width } = result.getBoundingClientRect();
+			indicator.value.style.width = width + "px";
+			const { left: left1 } = container.value.getBoundingClientRect();
+			const { left: left2 } = result.getBoundingClientRect();
+			const left = left2 - left1;
+			indicator.value.style.left = left + "px";
+		};
+		onMounted(x);
+		onUpdated(x);
+
 		const defaults = context.slots.default();
 		defaults.forEach((item) => {
 			if (item.type !== Tab) {
@@ -54,6 +79,9 @@ export default {
 			titles,
 			current,
 			select,
+			navItems,
+			indicator,
+			container,
 		};
 	},
 };
@@ -68,6 +96,7 @@ $border-color: #d9d9d9;
 		display: flex;
 		color: $color;
 		border-bottom: 1px solid $border-color;
+		position: relative;
 
 		&-item {
 			padding: 8px 0;
@@ -80,6 +109,15 @@ $border-color: #d9d9d9;
 			&.selected {
 				color: $blue;
 			}
+		}
+		&-indicator {
+			position: absolute;
+			height: 3px;
+			width: 100px;
+			background: $blue;
+			left: 0;
+			bottom: -1px;
+            transition: all 250ms;
 		}
 	}
 	&-content {
