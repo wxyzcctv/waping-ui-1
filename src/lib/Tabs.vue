@@ -12,8 +12,12 @@
 			</div>
 		</div>
 		<div class="waping-tabs-content">
-			{{ current }}
-			<component class="waping-tabs-content-item" :is="current"></component>
+			<component
+				class="waping-tabs-content-item"
+				v-for="content in defaults"
+				:class="{ selected: content.props.title === selected }"
+				:is="content"
+			></component>
 		</div>
 	</div>
 </template>
@@ -35,7 +39,6 @@ export default {
 			}
 		});
 		const current = computed(() => {
-			console.log("重新return");
 			return defaults.filter((item) => {
 				return item.props.title === props.selected;
 			})[0];
@@ -81,6 +84,13 @@ $border-color: #d9d9d9;
 	}
 	&-content {
 		padding: 8px 0;
+		&-item {
+			display: none;
+
+			&.selected {
+				display: block;
+			}
+		}
 	}
 }
 </style>
