@@ -18,17 +18,12 @@
 			<div class="waping-tabs-nav-indicator" ref="indicator"></div>
 		</div>
 		<div class="waping-tabs-content">
-			<component
-				class="waping-tabs-content-item"
-				v-for="content in defaults"
-				:class="{ selected: content.props.title === selected }"
-				:is="content"
-			></component>
+			<component :is="current" :key="current.props.title" />
 		</div>
 	</div>
 </template>
 <script lang="ts">
-import { onMounted, ref, watchEffect } from "vue";
+import { computed, onMounted, onUpdated, ref, watchEffect } from "vue";
 import Tab from "./Tab.vue";
 export default {
 	props: {
@@ -42,26 +37,25 @@ export default {
 		const indicator = ref<HTMLDivElement>(null);
 		const container = ref<HTMLDivElement>(null);
 
-		const x = () => {};
-
-		onMounted(() => {
-			watchEffect(() => {
-				const { width } = selectedItem.value.getBoundingClientRect();
-				indicator.value.style.width = width + "px";
-				const { left: left1 } = container.value.getBoundingClientRect();
-				const {
-					left: left2,
-				} = selectedItem.value.getBoundingClientRect();
-				const left = left2 - left1;
-				indicator.value.style.left = left + "px";
-			});
-		});
+		const x = () => {
+			const { width } = selectedItem.value.getBoundingClientRect();
+			indicator.value.style.width = width + "px";
+			const { left: left1 } = container.value.getBoundingClientRect();
+			const { left: left2 } = selectedItem.value.getBoundingClientRect();
+			const left = left2 - left1;
+			indicator.value.style.left = left + "px";
+		};
+		onMounted(x);
+		onUpdated(x);
 
 		const defaults = context.slots.default();
 		defaults.forEach((item) => {
 			if (item.type !== Tab) {
 				throw new Error("Tabs子标签必须是Tab");
 			}
+		});
+		const current = computed(() => {
+			return defaults.find((item) => item.props.title === props.selected);
 		});
 		const select = (title: string) => {
 			context.emit("update:selected", title);
@@ -70,6 +64,7 @@ export default {
 			return item.props.title;
 		});
 		return {
+			current,
 			defaults,
 			titles,
 			select,
@@ -116,13 +111,6 @@ $border-color: #d9d9d9;
 	}
 	&-content {
 		padding: 8px 0;
-		&-item {
-			display: none;
-
-			&.selected {
-				display: block;
-			}
-		}
 	}
 }
 </style>
