@@ -6,11 +6,11 @@
 				v-for="(title, index) in titles"
 				:ref="
 					(el) => {
-						if (el) navItems[index] = el;
+						if (title === selected) selectedItem = el;
 					}
 				"
 				@click="select(title)"
-				:class="{ selected: selected === title }"
+				:class="{ selected: title === selected }"
 				:key="index"
 			>
 				{{ title }}
@@ -18,17 +18,12 @@
 			<div class="waping-tabs-nav-indicator" ref="indicator"></div>
 		</div>
 		<div class="waping-tabs-content">
-			<component
-				class="waping-tabs-content-item"
-				v-for="content in defaults"
-				:class="{ selected: content.props.title === selected }"
-				:is="content"
-			></component>
+			<component :is="current" :key="current.props.title" />
 		</div>
 	</div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from "vue";
+import { computed, onMounted, onUpdated, ref, watchEffect } from "vue";
 import Tab from "./Tab.vue";
 export default {
 	props: {
@@ -38,19 +33,15 @@ export default {
 		},
 	},
 	setup(props, context) {
-		const navItems = ref<HTMLDivElement[]>([]);   // 获取for循环的ref的方法
+		const selectedItem = ref<HTMLDivElement>(null);
 		const indicator = ref<HTMLDivElement>(null);
 		const container = ref<HTMLDivElement>(null);
 
 		const x = () => {
-			const divs = navItems.value;
-			const result = divs.filter((div) =>
-				div.classList.contains("selected")
-			)[0];
-			const { width } = result.getBoundingClientRect();
+			const { width } = selectedItem.value.getBoundingClientRect();
 			indicator.value.style.width = width + "px";
 			const { left: left1 } = container.value.getBoundingClientRect();
-			const { left: left2 } = result.getBoundingClientRect();
+			const { left: left2 } = selectedItem.value.getBoundingClientRect();
 			const left = left2 - left1;
 			indicator.value.style.left = left + "px";
 		};
@@ -64,9 +55,7 @@ export default {
 			}
 		});
 		const current = computed(() => {
-			return defaults.filter((item) => {
-				return item.props.title === props.selected;
-			})[0];
+			return defaults.find((item) => item.props.title === props.selected);
 		});
 		const select = (title: string) => {
 			context.emit("update:selected", title);
@@ -75,11 +64,11 @@ export default {
 			return item.props.title;
 		});
 		return {
+			current,
 			defaults,
 			titles,
-			current,
 			select,
-			navItems,
+			selectedItem,
 			indicator,
 			container,
 		};
@@ -117,18 +106,11 @@ $border-color: #d9d9d9;
 			background: $blue;
 			left: 0;
 			bottom: -1px;
-            transition: all 250ms;
+			transition: all 250ms;
 		}
 	}
 	&-content {
 		padding: 8px 0;
-		&-item {
-			display: none;
-
-			&.selected {
-				display: block;
-			}
-		}
 	}
 }
 </style>
