@@ -28,14 +28,19 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		beat: {
+			type: String,
+			default: "",
+		},
 	},
 	setup(props) {
-		const { theme, size, level } = props;
+		const { theme, size, level, beat } = props;
 		const classes = computed(() => {
 			return {
 				[`waping-theme-${theme}`]: theme,
 				[`waping-size-${size}`]: size,
 				[`waping-level-${level}`]: level,
+				[`waping-beat-${beat}`]: beat,
 			};
 		});
 		return { classes };
@@ -108,6 +113,76 @@ $grey: grey;
 		font-size: 12px;
 		height: 20px;
 		padding: 0 4px;
+	}
+	&.waping-beat-up {
+		position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        animation: rotateU 1s linear infinite;
+		&::before {
+			content: "";
+			height: 8px;
+			width: 100%;
+			background: #000;
+			opacity: 0.2;
+			border-radius: 50%;
+			position: absolute;
+			top: -16px;
+			left: 0;
+			animation: shadowU 1s linear infinite;
+		}
+	}
+	&.waping-beat-down {
+		position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        animation: rotateD 1s linear infinite;
+		&::before {
+			content: "";
+			height: 8px;
+			width: 100%;
+			background: #000;
+			opacity: 0.2;
+			border-radius: 50%;
+			position: absolute;
+			top: 36px;
+			left: 0;
+			animation: shadowD 1s linear infinite;
+		}
+	}
+	&.waping-beat-left {
+		position: relative;
+        border-radius: 5px;
+        animation: rotateL 1s linear infinite;
+		&::before {
+			content: "";
+			height: 100%;
+			width: 8px;
+			background: #000;
+			opacity: 0.2;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			animation: shadowL 1s linear infinite;
+		}
+	}
+	&.waping-beat-right {
+		position: relative;
+        border-radius: 5px;
+        animation: rotateR 1s linear infinite;
+		&::before {
+			content: "";
+			height: 100%;
+			width: 8px;
+			background: #000;
+			opacity: 0.2;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			right: -12px;
+			animation: shadowL 1s linear infinite;
+		}
 	}
 	&.waping-theme-button {
 		&.waping-level-main {
@@ -200,7 +275,7 @@ $grey: grey;
 	}
 	> .waping-loadingIndicator {
 		width: 14px;
-		height: 14px;   
+		height: 14px;
 		display: inline-block;
 		margin-right: 4px;
 		border-radius: 8px;
@@ -216,6 +291,101 @@ $grey: grey;
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+@keyframes shadowU {
+	0%,
+	100% {
+		transform: scaleX(0.8);
+	}
+	50% {
+		transform: scaleX(1.2);
+	}
+}
+@keyframes shadowD {
+	0%,
+	100% {
+		transform: scaleX(0.8);
+	}
+	50% {
+		transform: scaleX(1.2);
+	}
+}
+@keyframes shadowL {
+	0%,
+	100% {
+		transform: scaleY(1.2);
+	}
+	50% {
+		transform: scaleY(0.8);
+	}
+}
+@keyframes rotateU {
+	0% {
+		transform: translateY(20px) scale(1.1, 0.9);
+	}
+	25% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	75% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(20px) scale(1.1, 0.9);
+	}
+}
+@keyframes rotateD {
+	0% {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(20px) scale(1.1, 0.9);
+	}
+	75% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes rotateL {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(10px);
+	}
+	50% {
+		transform: translateX(20px) scale(1.1, 0.9);
+	}
+	75% {
+		transform: translateX(10px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes rotateR {
+	0% {
+		transform: translateX(20px) scale(1.1, 0.9);
+	}
+	25% {
+		transform: translateX(10px);
+	}
+	50% {
+		transform: translateX(0);
+	}
+	75% {
+		transform: translateX(10px);
+	}
+	100% {
+		transform: translateX(20px) scale(1.1, 0.9);
 	}
 }
 </style>
