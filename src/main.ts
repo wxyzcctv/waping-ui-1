@@ -1,5 +1,5 @@
 import './lib/waping.scss'
-import './index.scss'
+import './global/css/index.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'

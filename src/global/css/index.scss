@@ -32,3 +32,10 @@
     fill: currentColor;
     overflow: hidden;
  }
+ @font-face{
+    font-family: 'UnidreamLED';
+    src:  url('./UnidreamLED/UnidreamLED.eot?w0ybrd');
+    src:  url('./UnidreamLED/UnidreamLED.eot?w0ybrd#iefix') format('embedded-opentype'),
+    url('./UnidreamLED/UnidreamLED.ttf?w0ybrd') format('truetype'),
+    url('./UnidreamLED/UnidreamLED.woff?w0ybrd') format('woff'),
+ }
