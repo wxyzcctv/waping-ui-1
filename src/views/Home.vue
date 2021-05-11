@@ -53,6 +53,7 @@ $blue: #0355ff;
 $border-radius: 4px;
 $color: #647294;
 .topnavAndBanner {
+	height: 500px;
 	background: linear-gradient(
 		180deg,
 		rgba(255, 255, 255, 1) 0%,
@@ -63,6 +64,9 @@ $color: #647294;
 	// border-bottom-right-radius: 50% 40px;
 	// 方法二
 	clip-path: ellipse(80% 60% at 50% 40%);
+	@media (max-width: 600px) {
+		height: 300px;
+	}
 }
 .features {
 	margin: 64px auto;
@@ -110,7 +114,10 @@ $color: #647294;
 }
 .banner {
 	color: $color;
-	padding: 100px 0;
+	padding: 250px 0;
+	@media (max-width: 600px) {
+		padding: 100px 0;
+	}
 	display: flex;
 	justify-content: center;
 	align-items: center;
