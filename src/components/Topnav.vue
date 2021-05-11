@@ -6,8 +6,9 @@
 			</svg>
 		</div>
 		<ul class="menu">
-			<li>菜单1</li>
-			<li>菜单2</li>
+			<li>
+				<router-link to="/doc">文档</router-link>
+			</li>
 		</ul>
 		<svg class="icon toggleAside" aria-hidden="true" @click="toggleMenu">
 			<use xlink:href="#icon-caidan"></use>
