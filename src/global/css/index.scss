@@ -39,3 +39,22 @@
     url('./UnidreamLED/UnidreamLED.ttf?w0ybrd') format('truetype'),
     url('./UnidreamLED/UnidreamLED.woff?w0ybrd') format('woff'),
  }
+ @font-face{
+    font-family: 'Techno LCD';
+    src:  url('./LCDVer1/DS-DIGIB.TTF');
+ }
+ @font-face{
+    font-family: 'LCD2';
+    src:  url('./LCDVer2/DJBGetDigital.ttf');
+    src:  url('./LCDVer2/DJBGetDigital.eot?w0ybrd');
+    src:  url('./LCDVer2/DJBGetDigital.eot?w0ybrd#iefix') format('embedded-opentype'),
+    url('./LCDVer2/DJBGetDigital.ttf?w0ybrd') format('truetype'),
+    url('./LCDVer2/DJBGetDigital.woff?w0ybrd') format('woff'),
+ }
+ @font-face{
+    font-family: 'LCD3';
+    src:  url('./LCDVer3/DigitalDisplay.eot?w0ybrd');
+    src:  url('./LCDVer3/DigitalDisplay.eot?w0ybrd#iefix') format('embedded-opentype'),
+    url('./LCDVer3/DigitalDisplay.ttf?w0ybrd') format('truetype'),
+    url('./LCDVer3/DigitalDisplay.woff?w0ybrd') format('woff'),
+ }
