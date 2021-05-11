@@ -44,6 +44,11 @@ $color: #647294;
 		rgba(255, 255, 255, 1) 0%,
 		rgba(247, 221, 217, 1) 100%
 	);
+    // 方法一
+    // border-bottom-left-radius: 50% 40px;
+    // border-bottom-right-radius: 50% 40px;
+    // 方法二
+    clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
 	> svg {
