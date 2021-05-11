@@ -23,7 +23,7 @@
 				<use xlink:href="#icon-Ts"></use>
 			</svg>
 			<svg class="icon">
-				<use xlink:href="#icon-xianxingyumaobi"></use>
+				<use xlink:href="#icon-easyRead"></use>
 			</svg>
 		</div>
 	</div>
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$green: #0355ff;
+$blue: #0355ff;
 $border-radius: 4px;
 $color: #647294;
 .topnavAndBanner {
@@ -62,7 +62,7 @@ $color: #647294;
 		padding: 8px 0;
 		a {
 			margin: 0 8px;
-			background: $green;
+			background: $blue;
 			color: white;
 			display: inline-block;
 			padding: 8px 24px;
