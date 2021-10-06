@@ -14,7 +14,7 @@ export default {
 		},
 		size: {
 			type: String,
-			default: "",
+			default: "normal",
 		},
 		level: {
 			type: String,
@@ -116,9 +116,9 @@ $grey: grey;
 	}
 	&.waping-beat-up {
 		position: relative;
-        cursor: pointer;
-        border-radius: 5px;
-        animation: rotateU 1s linear infinite;
+		cursor: pointer;
+		border-radius: 5px;
+		animation: rotateU 1s linear infinite;
 		&::before {
 			content: "";
 			height: 8px;
@@ -134,9 +134,9 @@ $grey: grey;
 	}
 	&.waping-beat-down {
 		position: relative;
-        cursor: pointer;
-        border-radius: 5px;
-        animation: rotateD 1s linear infinite;
+		cursor: pointer;
+		border-radius: 5px;
+		animation: rotateD 1s linear infinite;
 		&::before {
 			content: "";
 			height: 8px;
@@ -152,8 +152,8 @@ $grey: grey;
 	}
 	&.waping-beat-left {
 		position: relative;
-        border-radius: 5px;
-        animation: rotateL 1s linear infinite;
+		border-radius: 5px;
+		animation: rotateL 1s linear infinite;
 		&::before {
 			content: "";
 			height: 100%;
@@ -169,8 +169,8 @@ $grey: grey;
 	}
 	&.waping-beat-right {
 		position: relative;
-        border-radius: 5px;
-        animation: rotateR 1s linear infinite;
+		border-radius: 5px;
+		animation: rotateR 1s linear infinite;
 		&::before {
 			content: "";
 			height: 100%;
