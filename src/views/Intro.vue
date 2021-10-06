@@ -1,3 +1,3 @@
 <template>
-	<div>介绍</div>
+	<div>Intro页面</div>
 </template>

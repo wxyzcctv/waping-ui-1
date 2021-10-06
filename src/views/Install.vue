@@ -1,3 +1,3 @@
 <template>
-	<div>安装</div>
+	<div>Intall页面</div>
 </template>
