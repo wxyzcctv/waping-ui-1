@@ -1,7 +1,8 @@
 <template>
 	<button
 		class="waping-switch"
-		:class="{ 'waping-checked': value }"
+		:class="[{ 'waping-checked': value }, { 'disabled-click': disabled }]"
+		:disabled="disabled"
 		@click="toggle"
 	>
 		<span></span>
@@ -12,6 +13,7 @@ import { ref } from "vue";
 export default {
 	props: {
 		value: Boolean,
+		disabled: Boolean,
 	},
 	setup(props, context) {
 		const toggle = () => {
@@ -31,6 +33,7 @@ $h2: $h - 4px;
 	background: #bfbfbf;
 	border-radius: $h / 2;
 	position: relative;
+	cursor: pointer;
 	> span {
 		position: absolute;
 		top: 2px;
@@ -44,8 +47,12 @@ $h2: $h - 4px;
 	&:focus {
 		outline: none;
 	}
+	&.disabled-click {
+		cursor: not-allowed;
+	}
 	&.waping-checked {
 		background: #1890ff;
+
 		> span {
 			left: calc(100% - #{$h2} - 2px);
 		}

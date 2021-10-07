@@ -1,3 +1,6 @@
+<demo>
+支持 disabled
+</demo>
 <template>
 	<Switch v-model:value="label" disabled />
 </template>
