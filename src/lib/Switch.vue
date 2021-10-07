@@ -1,5 +1,11 @@
 <template>
-	<button class="waping-switch" :class="{ 'waping-checked': value }" @click="toggle"><span></span></button>
+	<button
+		class="waping-switch"
+		:class="{ 'waping-checked': value }"
+		@click="toggle"
+	>
+		<span></span>
+	</button>
 </template>
 <script lang="ts">
 import { ref } from "vue";
@@ -23,7 +29,7 @@ $h2: $h - 4px;
 	width: $h * 2;
 	border: none;
 	background: #bfbfbf;
-	border-radius: $h/2;
+	border-radius: $h / 2;
 	position: relative;
 	> span {
 		position: absolute;

@@ -51,12 +51,12 @@ export default {
 		};
 		const ok = () => {
 			// 如果props.ok 事件存在就执行，如果执行结果不为false就执行close()
-			if (props.ok?.() !== false) {
+			if (props.ok && props.ok() !== false) {
 				close();
 			}
 		};
 		const cancel = () => {
-            props.cancel?.()
+			props.cancel && props.cancel();
 			context.emit("cancel");
 			close();
 		};
