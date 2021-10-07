@@ -12,9 +12,8 @@ import SwitchDemo2 from "../components/Switch.demo2.vue";
 import ExampleDemo from "../components/ExampleDemo.vue";
 export default {
 	components: { ExampleDemo },
-	setup(props) {
-		const label = ref(true);
-		return { label, SwitchDemo1, SwitchDemo2 };
+	setup() {
+		return { SwitchDemo1, SwitchDemo2 };
 	},
 };
 </script>
