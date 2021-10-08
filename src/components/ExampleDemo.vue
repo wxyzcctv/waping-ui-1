@@ -5,7 +5,8 @@
 			<component :is="component" />
 		</div>
 		<div class="demo-actions">
-			<Button @click="showCode">查看代码</Button>
+			<Button @click="hiddenCode" v-if="demoCodeVisibel">隐藏代码</Button>
+			<Button @click="showCode" v-else>查看代码</Button>
 		</div>
 		<div class="demo-code" v-if="demoCodeVisibel">
 			<pre class="language-html" v-html="html" />
@@ -32,9 +33,12 @@ export default {
 		);
 		const demoCodeVisibel = ref<boolean>(false);
 		const showCode = () => {
-			demoCodeVisibel.value = !demoCodeVisibel.value;
+			demoCodeVisibel.value = true;
 		};
-		return { html, Prism, demoCodeVisibel, showCode };
+		const hiddenCode = () => {
+			demoCodeVisibel.value = false;
+		};
+		return { html, Prism, demoCodeVisibel, showCode, hiddenCode };
 	},
 };
 </script>
