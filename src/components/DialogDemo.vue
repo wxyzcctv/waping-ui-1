@@ -1,5 +1,5 @@
 <template>
-	<div>Dialog事例</div>
+	<h1>Dialog事例</h1>
 	<ExampleDemo :component="DialogDemo1" />
 	<ExampleDemo :component="DialogDemo2" />
 </template>
