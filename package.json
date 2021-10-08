@@ -7,15 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "github-markdown-css": "^4.0.0",
+    "github-markdown-css": "4.0.0",
+    "marked": "1.1.1",
     "prismjs": "1.21.0",
-    "vue": "3.0.0",
+    "vue": "3.2.19",
     "vue-router": "4.0.0-beta.3"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "3.0.0",
-    "marked": "1.1.1",
-    "sass": "1.32.13",
+    "@vue/compiler-sfc": "3.2.19",
+    "sass": "1.32.11",
     "vite": "1.0.0-rc.1"
   }
 }
