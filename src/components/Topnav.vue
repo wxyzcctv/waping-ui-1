@@ -13,7 +13,6 @@
 		<svg
 			v-if="toggleMenuButtonVisible"
 			class="icon toggleAside"
-			aria-hidden="true"
 			@click="toggleMenu"
 		>
 			<use xlink:href="#icon-caidan"></use>
@@ -45,11 +44,9 @@ $color: #647294;
 	color: $color;
 	display: flex;
 	padding: 16px;
-	position: fixed;
-	top: 0;
-	left: 0;
+
 	width: 100%;
-	z-index: 10;
+	z-index: 20;
 	justify-content: center;
 	align-items: center;
 	> .logo {
@@ -69,11 +66,14 @@ $color: #647294;
 		}
 	}
 	> .toggleAside {
+		position: fixed;
+		top: 2rem;
+		left: 1rem;
 		width: 24px;
 		height: 24px;
-		position: absolute;
-		left: 16px;
-		top: 50%;
+		// position: absolute;
+		// left: 16px;
+		// top: 50%;
 		transform: translateY(-50%);
 		display: none;
 	}
