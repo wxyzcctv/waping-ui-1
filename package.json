@@ -1,6 +1,10 @@
 {
   "name": "waping-ui-1",
   "version": "0.0.0",
+  "files": [
+    "dist/lib/*"
+  ],
+  "main": "dist/lib/waping.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
