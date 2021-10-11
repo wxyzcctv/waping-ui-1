@@ -52,6 +52,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 $aside-zindex: 10;
+$aside-main-color: #1890ff;
+$active-color: #e6f7ff;
 .layout {
 	display: flex;
 	flex-direction: column;
@@ -80,7 +82,7 @@ $aside-zindex: 10;
 	}
 }
 aside {
-	background: lightblue;
+	background: #fff;
 	width: 150px;
 	padding: 16px 0;
 	position: fixed;
@@ -89,6 +91,7 @@ aside {
 	padding-top: 70px;
 	height: 100%;
 	z-index: $aside-zindex;
+	border-right: 1px solid #efefef;
 	> h2 {
 		margin-bottom: 4px;
 		padding: 0 16px;
@@ -101,7 +104,17 @@ aside {
 				text-decoration: none;
 			}
 			.router-link-active {
-				background: white;
+				background: $active-color;
+				color: $aside-main-color;
+				position: relative;
+				&::before {
+					position: absolute;
+					content: "";
+					top: 0;
+					right: 0;
+					bottom: 0;
+					border-right: 3px solid $aside-main-color;
+				}
 			}
 		}
 	}
