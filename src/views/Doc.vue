@@ -62,6 +62,8 @@ $active-color: rgba(255, 231, 214, 0.5);
 	height: 100vh;
 	> .nav {
 		flex-shrink: 0;
+		background: #fff;
+		box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.2);
 	}
 	> .content {
 		flex-grow: 1;
