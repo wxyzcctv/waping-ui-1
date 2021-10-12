@@ -52,8 +52,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 $aside-zindex: 10;
-$aside-main-color: #1890ff;
-$active-color: #e6f7ff;
+// $aside-main-color: #1890ff;
+// $active-color: #e6f7ff;
+$aside-main-color: #ff6c69;
+$active-color: rgba(255, 231, 214, 0.5);
 .layout {
 	display: flex;
 	flex-direction: column;
@@ -63,7 +65,7 @@ $active-color: #e6f7ff;
 	}
 	> .content {
 		flex-grow: 1;
-		padding-top: 60px;
+		padding-top: 120px;
 		padding-left: 156px;
 		@media (max-width: 500px) {
 			padding-left: 0;
@@ -88,20 +90,23 @@ aside {
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding-top: 70px;
+	padding-top: 80px;
 	height: 100%;
 	z-index: $aside-zindex;
 	border-right: 1px solid #efefef;
+	box-shadow: 2px 0px 5px -1px rgba(0, 0, 0, 0.2);
 	> h2 {
 		margin-bottom: 4px;
-		padding: 0 16px;
+		padding: 10px 16px;
+		color: #2d2942;
 	}
 	> ol {
 		> li {
 			a {
 				display: block;
-				padding: 4px 16px;
+				padding: 10px 16px;
 				text-decoration: none;
+				color: #2d2942;
 			}
 			.router-link-active {
 				background: $active-color;

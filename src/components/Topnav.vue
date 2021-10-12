@@ -7,6 +7,13 @@
 		</router-link>
 		<ul class="menu">
 			<li>
+				<a
+					href="https://github.com/wxyzcctv/waping-ui-1"
+					target="_blank"
+					>github</a
+				>
+			</li>
+			<li>
 				<router-link to="/doc">文档</router-link>
 			</li>
 		</ul>
@@ -38,17 +45,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$color: #647294;
+// $color: #647294;
+$color: #2d2942;
 
 .topnav {
 	color: $color;
+	position: fixed;
 	display: flex;
 	padding: 16px;
-
 	width: 100%;
 	z-index: 20;
 	justify-content: center;
 	align-items: center;
+	background: #fff;
+	box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+	// -webkit-box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.48);
+	// -moz-box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.48);
 	> .logo {
 		max-width: 6em;
 		margin-right: auto;
